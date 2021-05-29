@@ -1,17 +1,19 @@
 package com.projects.recipebook.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Ingredient {
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String modifier;
     private long quantity;
     private String measure;
+    @ManyToMany
+    private List<Recipe> recipeList;
 
     public int getId() {
         return id;

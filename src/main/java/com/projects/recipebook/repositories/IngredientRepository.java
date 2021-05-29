@@ -2,10 +2,15 @@ package com.projects.recipebook.repositories;
 
 import com.projects.recipebook.exceptions.NoSuchIngredient;
 import com.projects.recipebook.models.Ingredient;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public interface IngretientRepository {
+public interface IngredientRepository extends JpaRepository<Ingredient, Integer> {
+    List<Ingredient> findAll();
     Ingredient findById(int id) throws NoSuchIngredient;
+    Ingredient findByName(String name) throws NoSuchIngredient;
 
 }

@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class RecipeController {
     @RequestMapping(value = "/recipes", method = RequestMethod.GET)
     public String recipies(Model model){
-
+        return "allRecipies";
     }
 }
