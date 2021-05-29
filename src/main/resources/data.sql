@@ -1,6 +1,6 @@
-INSERT INTO ingredient (id, name, modifier, quantity, measure)
+INSERT INTO ingredient (id, name)
     VALUES
-        (1, "Chicken", "sliced", 200, "grams"),
-        (2, "Apple", "", 1, "piece"),
-        (3, "Grape", "", 400, "grams"),
-        (4, "Milk", "", 500, "ml");
+        (1, "Chicken"),
+        (2, "Apple"),
+        (3, "Grape"),
+        (4, "Milk");
