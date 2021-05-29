@@ -1,8 +1,10 @@
 package com.projects.recipebook.repositories;
 
+import com.projects.recipebook.models.Recipe;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class RecipeRepository {
+public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
 
 }
