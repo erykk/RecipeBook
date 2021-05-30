@@ -10,13 +10,13 @@ public class Recipe {
     private int id;
     private String name;
     @ManyToMany
-    private List<Ingredient> ingredientList;
+    private List<RecipeComponent> componentList;
 
     public Recipe(){}
 
-    public Recipe(String name, List<Ingredient> ingredientList) {
+    public Recipe(String name, List<RecipeComponent> componentList) {
         this.name = name;
-        this.ingredientList = ingredientList;
+        this.componentList = componentList;
     }
 
     public int getId() {
@@ -35,11 +35,11 @@ public class Recipe {
         this.name = name;
     }
 
-    public List<Ingredient> getIngredientList() {
-        return ingredientList;
+    public List<RecipeComponent> getIngredientList() {
+        return componentList;
     }
 
-    public void setIngredientList(List<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
+    public void setIngredientList(List<RecipeComponent> componentList) {
+        this.componentList = componentList;
     }
 }

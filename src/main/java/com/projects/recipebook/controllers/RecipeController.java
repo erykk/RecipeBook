@@ -45,6 +45,7 @@ public class RecipeController {
         Recipe recipe = recipeService.save(new Recipe());
         recipe.setName(recipeInfo.getName());
 
+        // TODO : save all recipe components, add them to list in Recipe
         for (RecipeComponent rC : recipeComponentList){
 
         }
