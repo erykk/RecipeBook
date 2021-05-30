@@ -1,6 +1,6 @@
 package com.projects.recipebook.beans;
 
-public class RecipeBean {
+public class RecipeInfo {
     private String name;
     private String ingredients;
 

@@ -9,13 +9,18 @@
 <div th:insert="fragments/nav"></div>
 
 <div class="container">
-    <h1>New Recipe</h1>
-    <form action="#" th:action="@{/addRecipe}" th:object="${recipeInfo}" method="post">
-        <p>Recipe name: <input type="text" th:field="*{name}" /></p>
-        <p>Format: Name, Modifier, Quantity, Measure</p>
-        <p>Ingredients: <textarea type="text" th:field="*{ingredients}"></textarea></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tr th:each="rec : ${recipes}">
+            <td th:text="${rec.id}"></td>
+            <td th:text="${rec.name}"></td>
+        </tr>
+    </table>
 </div>
 
 </body>

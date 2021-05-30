@@ -16,6 +16,14 @@ public class RecipeComponent {
     private long quantity;
     private String measure;
 
+    public RecipeComponent(){}
+    public RecipeComponent(Ingredient ingredient, String modifier, long quantity, String measure) {
+        this.ingredient = ingredient;
+        this.modifier = modifier;
+        this.quantity = quantity;
+        this.measure = measure;
+    }
+
     public int getId() {
         return id;
     }

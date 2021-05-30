@@ -12,6 +12,13 @@ public class Recipe {
     @ManyToMany
     private List<Ingredient> ingredientList;
 
+    public Recipe(){}
+
+    public Recipe(String name, List<Ingredient> ingredientList) {
+        this.name = name;
+        this.ingredientList = ingredientList;
+    }
+
     public int getId() {
         return id;
     }

@@ -1,6 +1,5 @@
 package com.projects.recipebook.controllers;
 
-import com.projects.recipebook.beans.IngredientInfo;
 import com.projects.recipebook.models.Ingredient;
 import com.projects.recipebook.services.IngredientsService;
 import org.springframework.beans.factory.annotation.Autowired;
