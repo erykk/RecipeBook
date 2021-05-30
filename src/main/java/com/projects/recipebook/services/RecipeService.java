@@ -17,4 +17,8 @@ public class RecipeService {
     }
 
     public Recipe save(Recipe recipe){ return recipeRepository.save(recipe); }
+
+    public Recipe findById(int id) {
+        return recipeRepository.findById(id);
+    }
 }

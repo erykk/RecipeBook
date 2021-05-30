@@ -11,9 +11,7 @@ import com.projects.recipebook.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,6 +58,13 @@ public class RecipeController {
 
         model.addAttribute("recipes", recipeService.findAll());
         return "allRecipes";
+    }
+
+    @RequestMapping(value = "/viewRecipe/{id}", method = RequestMethod.GET)
+    public String viewRecipe(@PathVariable("id") int id, Model model){
+        Recipe recipe = recipeService.findById(id);
+        model.addAttribute("recipe", recipe);
+        return "viewRecipe";
     }
 
     private List<RecipeComponent> parseIngredients(String ingredients){

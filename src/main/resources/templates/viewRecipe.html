@@ -9,17 +9,21 @@
 <div th:insert="fragments/nav"></div>
 
 <div class="container">
+    <p>Recipe: <p th:text="${recipe.name}"></p></p>
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
+            <th>Ingredient</th>
+            <th>Modifier</th>
+            <th>Quantity</th>
+            <th>Measure</th>
         </tr>
         </thead>
-        <tr th:each="rec : ${recipes}">
-            <td th:text="${rec.id}"></td>
-            <td th:text="${rec.name}"></td>
-            <td><a th:href="@{/viewRecipe/{id}(id=${rec.id})}">View</a></td>
+        <tr th:each="comp : ${recipe.componentList}">
+            <td th:text="${comp.name}"></td>
+            <td th:text="${comp.modifier}"></td>
+            <td th:text="${comp.quantity}"></td>
+            <td th:text="${comp.measure}"></td>
         </tr>
     </table>
 </div>
