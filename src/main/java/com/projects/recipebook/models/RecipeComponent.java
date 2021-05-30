@@ -1,6 +1,7 @@
 package com.projects.recipebook.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,7 @@ public class RecipeComponent {
 
     public RecipeComponent(){}
     public RecipeComponent(Ingredient ingredient, String modifier, long quantity, String measure) {
+        recipeList = new ArrayList<>();
         this.ingredient = ingredient;
         this.modifier = modifier;
         this.quantity = quantity;
@@ -70,5 +72,9 @@ public class RecipeComponent {
 
     public void setMeasure(String measure) {
         this.measure = measure;
+    }
+
+    public void addRecipe(Recipe recipe) {
+        recipeList.add(recipe);
     }
 }
