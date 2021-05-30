@@ -8,12 +8,20 @@
 <body>
   <div th:insert="fragments/nav"></div>
 
-  <table>
-    <tr th:each="ingr : ${ingredients}">
-      <td th:text="${ingr.id}"></td>
-      <td th:text="${ingr.name}"></td>
-    </tr>
-  </table>
+  <div class="wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tr th:each="ingr : ${ingredients}">
+        <td th:text="${ingr.id}"></td>
+        <td th:text="${ingr.name}"></td>
+      </tr>
+    </table>
+  </div>
 
 </body>
 </html>

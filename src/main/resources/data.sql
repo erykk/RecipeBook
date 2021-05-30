@@ -1,6 +1,6 @@
 INSERT INTO ingredient (id, name)
     VALUES
-        (1, "Chicken"),
-        (2, "Apple"),
-        (3, "Grape"),
-        (4, "Milk");
+        (100, "Chicken"),
+        (101, "Apple"),
+        (102, "Grape"),
+        (103, "Milk");
