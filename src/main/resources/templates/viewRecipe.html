@@ -14,16 +14,14 @@
         <thead>
         <tr>
             <th>Ingredient</th>
-            <th>Modifier</th>
             <th>Quantity</th>
             <th>Measure</th>
         </tr>
         </thead>
-        <tr th:each="comp : ${recipe.componentList}">
-            <td th:text="${comp.name}"></td>
-            <td th:text="${comp.modifier}"></td>
-            <td th:text="${comp.quantity}"></td>
-            <td th:text="${comp.measure}"></td>
+        <tr th:each="ingr : ${recipe.ingredients}">
+            <td th:text="${ingr.key}"></td>
+            <td th:text="${ingr.value.quantity}"></td>
+            <td th:text="${ingr.value.measure}"></td>
         </tr>
     </table>
 </div>
