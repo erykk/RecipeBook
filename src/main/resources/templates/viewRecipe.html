@@ -9,7 +9,9 @@
 <div th:insert="fragments/nav"></div>
 
 <div class="container">
-    <p>Recipe: <p th:text="${recipe.name}"></p></p>
+    <h3 th:text="${recipe.name}">Unnamed recipe</h3>
+    <p th:text="${recipe.desc}">Blank</p>
+
     <table class="table">
         <thead>
         <tr>

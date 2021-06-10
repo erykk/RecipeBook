@@ -1,21 +1,15 @@
 package com.projects.recipebook.controllers;
 
-import com.projects.recipebook.beans.RecipeInfo;
+import com.projects.recipebook.dto.RecipeDto;
 import com.projects.recipebook.models.Amount;
 import com.projects.recipebook.models.Recipe;
 import com.projects.recipebook.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class RecipeController {
@@ -25,7 +19,7 @@ public class RecipeController {
 
     @RequestMapping(value = "/addRecipe", method = RequestMethod.GET)
     public String addRecipe(Model model ){
-        model.addAttribute("recipeInfo", new RecipeInfo());
+        model.addAttribute("recipeInfo", new RecipeDto());
         return "addRecipe";
     }
 
@@ -33,6 +27,12 @@ public class RecipeController {
     public String viewRecipes(Model model ){
         model.addAttribute("recipes", recipeRepository.findAll());
         return "allRecipes";
+    }
+
+    @RequestMapping(value = "/searchRecipes", method = RequestMethod.GET)
+    public String searchRecipes(Model model ){
+        // model.addAttribute("recipes", recipeRepository.findAll());
+        return "searchRecipes";
     }
 
     @RequestMapping(value = "/viewRecipe/{id}", method = RequestMethod.GET)
@@ -43,7 +43,7 @@ public class RecipeController {
     }
 
     @RequestMapping(value = "/addRecipe", method = RequestMethod.POST)
-    public String addRecipe(Model model, @ModelAttribute("recipeInfo") RecipeInfo recipeInfo) {
+    public String addRecipe(Model model, @ModelAttribute("recipeInfo") RecipeDto recipeInfo) {
         Recipe recipe = new Recipe();
         recipe.setName(recipeInfo.getName());
         recipe.setDesc(recipeInfo.getDesc());
@@ -54,7 +54,20 @@ public class RecipeController {
         return "allRecipes";
     }
 
+    @RequestMapping(value = "/searchRecipes", method = RequestMethod.POST)
+    public String searchRecipes(Model model, @RequestParam("query") String query){
+        List<Recipe> recipes = recipeRepository.findAll();
+        List<Recipe> results = new ArrayList<>();
 
+        for (Recipe r : recipes){
+            if (r.getName().contains(query) || r.getDesc().contains(query) || r.getIngredients().containsKey(query)){
+                results.add(r);
+            }
+        }
+
+        model.addAttribute("recipes", results);
+        return "searchRecipes";
+    }
 
     private Map<String, Amount> parseIngredients(String ingredients){
         Map<String, Amount> map = new HashMap<>();

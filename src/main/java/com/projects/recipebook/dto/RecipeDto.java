@@ -1,6 +1,6 @@
-package com.projects.recipebook.beans;
+package com.projects.recipebook.dto;
 
-public class RecipeInfo {
+public class RecipeDto {
     private String name;
     private String desc;
     private String ingredients;
