@@ -1,29 +1,23 @@
 package com.projects.recipebook.models;
 
-import javax.persistence.*;
-import java.util.List;
+import java.util.Map;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "recipebook")
 public class Recipe {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private String id;
     private String name;
-    @ManyToMany
-    private List<RecipeComponent> componentList;
+    private String desc;
+    private Map<String, Amount> ingredients;
 
-    public Recipe(){}
-
-    public Recipe(String name, List<RecipeComponent> componentList) {
-        this.name = name;
-        this.componentList = componentList;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -35,11 +29,19 @@ public class Recipe {
         this.name = name;
     }
 
-    public List<RecipeComponent> getIngredientList() {
-        return componentList;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setIngredientList(List<RecipeComponent> componentList) {
-        this.componentList = componentList;
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Map<String, Amount> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Map<String, Amount> ingredients) {
+        this.ingredients = ingredients;
     }
 }

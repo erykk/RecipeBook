@@ -12,7 +12,8 @@
     <h1>New Recipe</h1>
     <form action="#" th:action="@{/addRecipe}" th:object="${recipeInfo}" method="post">
         <p>Recipe name: <input type="text" th:field="*{name}" /></p>
-        <p>Format: Name, Modifier, Quantity, Measure</p>
+        <p>Recipe desc: <input type="text" th:field="*{desc}" /></p>
+        <p>Format: Name (Modifier), Quantity, Measure</p>
         <p>Ingredients: <textarea type="text" th:field="*{ingredients}"></textarea></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
